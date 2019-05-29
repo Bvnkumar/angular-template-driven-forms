@@ -1,0 +1,18 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <a routerLink="/login">Login</a>
+</div>
+<a routerLink="/nested">Nested</a>
+<router-outlet></router-outlet>
+<br>
+<!-- this is example for template driven forms -->
+<form #loginform="ngForm">
+  <div class="form-group">
+    <label for="username">username</label>
+    <input type="text" class="form-control" required [(ngModel)]="a.username" name="username" #username="ngModel">
+    <br>
+    <input type="button" value="submit" class="btn btn-primary">
+  </div>
+  <div *ngIf="username.invalid else valid">it is a invalid</div>
+  <ng-template #valid> this is valid one</ng-template>
+</form>
