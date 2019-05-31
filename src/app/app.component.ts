@@ -1,4 +1,4 @@
-import { Component,Input,ElementRef,ViewChild } from '@angular/core';
+import { Component,Input,ElementRef,ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +9,19 @@ export class AppComponent {
   title = 'app';
   loginform:loginForm;
   a=new loginForm("");
-  @ViewChild('name') input;
+  // @ViewChild'name') input;
+
+  @ViewChildren('name') input;
   constructor(private elementref:ElementRef){
   }
   ngOnInit(){
  
   }
   ngAfterViewInit() {
-    console.log("using viewchild",this.input.nativeElement.value);
-
+    // console.log("using viewchild",this.input.nativeElement.value);
+this.input.forEach(element => {
+  console.log("element",element.nativeElement.value)
+});
     console.log("using element reference",this.elementref.nativeElement.querySelector('#name').value);
   }
 
