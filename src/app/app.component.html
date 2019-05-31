@@ -6,13 +6,25 @@
 <router-outlet></router-outlet>
 <br>
 <!-- this is example for template driven forms -->
-<form #loginform="ngForm">
+<!-- <form #loginform="ngForm">
   <div class="form-group">
     <label for="username">username</label>
-    <input type="text" class="form-control" required [(ngModel)]="a.username" name="username" #username="ngModel">
+    <input type="text" class="form-control" required [(ngModel)]="a.username" name="username" #username="ngModel" [format]="format">
     <br>
     <input type="button" value="submit" class="btn btn-primary">
   </div>
   <div *ngIf="username.invalid else valid">it is a invalid</div>
   <ng-template #valid> this is valid one</ng-template>
+</form> -->
+<!-- this is for viewchild and template reference -->
+<form #loginform="ngForm">
+  <div class="form-group">
+    <label for="username">username</label>
+    <input type="text" placeholder="" class="form-control" required [(ngModel)]="a.username" value="kumar" name="username" #username="ngModel"  #name id="name">
+    <br>
+    <input type="button" value="submit" class="btn btn-primary">
+  </div>
+  <div *ngIf="username.invalid else valid">it is a invalid</div>
+  <ng-template #valid> this is valid one</ng-template>
+  {{username.value}}
 </form>
