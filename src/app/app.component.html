@@ -6,6 +6,7 @@
 <router-outlet></router-outlet>
 <br>
 <!-- this is example for template driven forms -->
+<h5>this is example for template driven forms</h5>
 <!-- <form #loginform="ngForm">
   <div class="form-group">
     <label for="username">username</label>
@@ -16,11 +17,13 @@
   <div *ngIf="username.invalid else valid">it is a invalid</div>
   <ng-template #valid> this is valid one</ng-template>
 </form> -->
-<!-- this is for viewchild and template reference -->
+<!-- this is for viewchild and element reference -->
+<h5>Example for viewchild and element reference</h5>
+
 <form #loginform="ngForm">
   <div class="form-group">
     <label for="username">username</label>
-    <input type="text" placeholder="" class="form-control" required [(ngModel)]="a.username" value="kumar" name="username" #username="ngModel"  #name id="name">
+    <input type="text" placeholder="" class="form-control" required [(ngModel)]="a.username" value="kumar" name="username" #username="ngModel"  #name id="name"><br>
     <input type="text" placeholder="" class="form-control" required [(ngModel)]="a.username" value="kumar2" name="username" #username="ngModel"  #name id="name">
 
     <br>
@@ -29,4 +32,9 @@
   <div *ngIf="username.invalid else valid">it is a invalid</div>
   <ng-template #valid> this is valid one</ng-template>
   {{username.value}}
-</form>
+</form> <br>
+<!-- Here is the code  for viewchild -->
+<h5>Example for contentchild</h5>
+<app-login>
+<app-nested></app-nested>
+</app-login>
